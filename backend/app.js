@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const { db } = require('./db/db');
-const app = express()
+const {readdirSync} = require('fs');
+const app = express();
 
 require('dotenv').config();
 
@@ -15,11 +16,15 @@ app.use(cors({}))
 //     res.send('Hello from PORT 5000')
 // })
 
+
+//routes
+readdirSync('./routes').map((route) => app.use('/api/v1', 
+    require('./routes/' + route)))
 const server = () => {
-    db()
+    db();
     app.listen(PORT, () =>{
         console.log('Listening to Port:', PORT)
     })
 }
 
-server()
+server();
