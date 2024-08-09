@@ -2,6 +2,7 @@
 
 # Front end 
 - uses react 
+- npm install axios chart.js moment react-chartjs-2 react-datepicker styled-components
 
 # Back end 
 - uses node Js along with express
