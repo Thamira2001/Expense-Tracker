@@ -14,7 +14,7 @@ export default function Navigation() {
                 <p>Your Money</p>
             </div>
         </div>
-        {/* <ul className="menu-items">
+        <ul className="menu-items">
                 {MenuItems.map((item) => {
                     return <li
                         key={item.id}
@@ -29,7 +29,7 @@ export default function Navigation() {
                     {signout} Sign Out
                 </li>
             </div>
-         */}
+        
     </NavStyled>
 
     

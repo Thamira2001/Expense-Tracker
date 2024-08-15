@@ -6,17 +6,17 @@ import Navigation from "./Components/Navigation/Navigation";
 function App() {
   return (
     <AppStyled className="App">
-      <Orb>
+      <Orb/>
         <MainLayout>
           <Navigation/>
         </MainLayout>
-      </Orb>
     </AppStyled>
   );
 }
 
 const AppStyled = styled.div`
   height:100vh;
+  position:relative;
 `;
 
 export default App;
