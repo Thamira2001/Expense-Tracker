@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { MainLayout } from "./styles/Layout";
 import Orb from "./Components/Orb/Orb";
 import Navigation from "./Components/Navigation/Navigation";
-import Form from "./Components/Form/Form";
 
 function App() {
   return (
@@ -10,9 +9,7 @@ function App() {
       <Orb/>
         <MainLayout>
           <Navigation/>
-        </MainLayout>
-        <Form/>
-        
+        </MainLayout>    
     </AppStyled>
   );
 }

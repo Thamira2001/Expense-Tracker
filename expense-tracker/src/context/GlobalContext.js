@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import React,{ useContext, useState } from "react";
 import axios from 'axios';
 
 //host base url of backend that we need to connect to accces and render info from db through backend to the frontend to be displayed 
 const BASE_URL='http://localhost/api/v1/';
 
-const GlobalContext = React.createContext();
+const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children})=>{
     //deriving array of incomes and expenses from backend 
@@ -95,10 +95,12 @@ export const GlobalProvider = ({children})=>{
 
         <GlobalContext.Provider value={{
             addIncome,
+            incomes,
             getIncomes,
             deleteIncome,
             totalIncome,
             addExpense,
+            expenses,
             getExpenses,
             deleteExpense,
             totalExpenses,
