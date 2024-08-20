@@ -10,6 +10,7 @@ function App() {
         <MainLayout>
           <Navigation/>
         </MainLayout>
+        
     </AppStyled>
   );
 }
