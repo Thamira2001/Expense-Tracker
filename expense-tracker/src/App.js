@@ -34,14 +34,13 @@ function App() {
   console.log(global)
   return (
     <AppStyled className="App">
-        {/* {orbMemo} */}
+        
         <MainLayout>
           <Navigation active= {active} setActive = {setActive}/>
-        </MainLayout> 
-        
-        {/* <main>
-          {displayData()}
-        </main>    */}
+           <main>
+            {displayData()}
+          </main>  
+        </MainLayout>  
     </AppStyled>
   );
 }

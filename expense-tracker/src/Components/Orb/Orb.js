@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useWindowSize } from '../../utils/useWindowSize';
 
-export default function Orb() {
+function Orb() {
 
     //use the hook the get the window width and height 
     const {width, height} = useWindowSize()
@@ -21,6 +21,7 @@ export default function Orb() {
         }
 
     `;
+
     const OrbStyled = styled.div`
         width:70vh;
         height:70vh;
@@ -32,9 +33,15 @@ export default function Orb() {
         filter: blur(400px);
         animation: ${moveOrb} 15s alternate linear infinite;
     `;
+
+    
     return (
     <OrbStyled>
 
     </OrbStyled>
   )
 }
+
+
+
+    export default Orb

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 //should take in props to customize diff buttons but use the same component in different instances 
-export default function Button({name, icon, onClick, bg, bPad, color, bRad}) {
+function Button({name, icon, onClick, bg, bPad, color, bRad}) {
   return (
     <ButtonStyled style={{
         background: bg,
@@ -10,14 +10,14 @@ export default function Button({name, icon, onClick, bg, bPad, color, bRad}) {
         borderRadius: bRad,
         color: color,
     }     
-    }>
+    } onClick={onClick}> 
         {icon}
         {name}
     </ButtonStyled>
   )
 }
 
-const ButtonStyled = styled.div`
+const ButtonStyled = styled.button`
     online: none;
     font-family: inherit;
     display:flex;
@@ -26,3 +26,5 @@ const ButtonStyled = styled.div`
     cursor:pointer;
     transition: all .4s ease-in-out;
 `;
+
+export default Button

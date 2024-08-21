@@ -2,7 +2,7 @@ import React,{ useContext, useState } from "react";
 import axios from 'axios';
 
 //host base url of backend that we need to connect to accces and render info from db through backend to the frontend to be displayed 
-const BASE_URL='http://127.0.0.1:5000/api/v1/';
+const BASE_URL='http://localhost:5000/api/v1/';
 
 const GlobalContext = React.createContext()
 
@@ -42,7 +42,7 @@ export const GlobalProvider = ({children})=>{
     const totalIncomes = ()=>{
         let totalIncome =0 ;
         incomes.forEach((income)=>{
-            totalIncome+=income;
+            totalIncome+=income.amount;
         })
 
         return totalIncome;
@@ -70,14 +70,14 @@ export const GlobalProvider = ({children})=>{
     //deleteing an income from front end which then goes to backend where it handles the request and deletes the income fromt the db
     const deleteExpense = async(id)=>{
         const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
-        getIncomes();//get all the expenses after deletion of expense
+        getExpenses();//get all the expenses after deletion of expense
     }
 
     //function to get total expenses
     const totalExpenses = ()=>{
         let totalExpenses =0 ;
         expenses.forEach((expense)=>{
-            totalExpenses+=expense;
+            totalExpenses+=expense.amount;
         })
 
         return totalExpenses;

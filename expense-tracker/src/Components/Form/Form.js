@@ -7,7 +7,7 @@ import { plus } from '../../utils/Icons'
 
 export default function Form() {
 
-  const {addIncome, getincome, error,seError} = useGlobalContext()
+  const {addIncome, getIncomes, error,setError} = useGlobalContext()
   const [inputState, setInputState]= useState({
     title:'',
     amount:'',
@@ -19,8 +19,8 @@ export default function Form() {
   const {title, amount, date, category, description}=inputState
 
   const handleInput = name => e => {
-    setInputState({...inputState, [name]:e.target.value})
-    seError('')
+    setInputState({...inputState, [name]: e.target.value})
+    setError('')
   }
 
   const handleSubmit = e =>{
@@ -84,12 +84,13 @@ export default function Form() {
             <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
         </div>
         <div className='submit-btn'>
-            <Button
-                name={'Add-income'}
-                icon={plus}
-                bPad={'8rem 1.6rem'}
-                bg={'var(--col-accent)'}
-                color={'#fff'}
+            <Button 
+                    name={'Add Income'}
+                    icon={plus}
+                    bPad={'.8rem 1.6rem'}
+                    bRad={'30px'}
+                    bg={'var(--color-accent'}
+                    color={'#fff'}
             />
         </div>
 

@@ -80,14 +80,14 @@ function IncomeItem({
                 </p>
                 <div className='btn-con'>
                     <Button 
-                        icon = {trash}
-                        bPad = {'1rem'}
-                        bRad={'50%'}
-                        bg={'var(--primary-color)'}
-                        color={'#fff'}
-                        iColor={'#fff'}
-                        hColor={'var(--color-green)'}
-                        onClick={() => deleteItem(id)}
+                            icon={trash}
+                            bPad={'1rem'}
+                            bRad={'50%'}
+                            // bg={'var(--primary-color'}
+                            // color={'#fff'}
+                            // iColor={'#fff'}
+                            hColor={'var(--color-green)'}
+                            onClick={() => deleteItem(id)}
                     />
                 </div>
             </div>

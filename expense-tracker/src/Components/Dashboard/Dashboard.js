@@ -9,11 +9,11 @@ import History from '../../History/History';
 function Dashboard() {
 
   const {totalExpenses, incomes, expenses, totalIncomes, totalBalance
-    ,getIncomes, getExoenses} = useGlobalContext()
+    ,getIncomes, getExpenses} = useGlobalContext()
 
     useEffect(()=>{
         getIncomes()
-        getExoenses()
+        getExpenses()
     }, [])
     return (
     <DashboardStyled>

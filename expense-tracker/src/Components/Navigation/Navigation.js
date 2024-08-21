@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { MenuItems } from '../../utils/MenuItems';
 import { signout } from '../../utils/Icons';
 
-export default function Navigation() {
+function Navigation({active, setActive}) {
     
     return (
     <NavStyled>
@@ -18,6 +18,8 @@ export default function Navigation() {
                 {MenuItems.map((item) => {
                     return <li
                         key={item.id}
+                        onClick={()=>setActive(item.id)}
+                        className={active === item.id ? 'active': ''}
                     >
                         {item.icon}
                         <span>{item.title}</span>
@@ -112,3 +114,5 @@ const NavStyled = styled.div`
         }
     }
 `;
+
+export default Navigation
