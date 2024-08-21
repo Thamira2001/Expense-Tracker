@@ -2,7 +2,7 @@ import React,{ useContext, useState } from "react";
 import axios from 'axios';
 
 //host base url of backend that we need to connect to accces and render info from db through backend to the frontend to be displayed 
-const BASE_URL='http://localhost:5000/api/v1/';
+const BASE_URL='http://127.0.0.1:5000/api/v1/';
 
 const GlobalContext = React.createContext()
 

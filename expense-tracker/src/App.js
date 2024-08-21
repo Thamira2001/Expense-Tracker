@@ -6,19 +6,42 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses'
 import { useGlobalContext } from "./context/GlobalContext";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 function App() {
 
   const [active, setActive] = useState(1)
+
+  const displayData = () => {
+    switch(active){
+      case 1:
+        return <Dashboard />
+      case 2:
+        return <Dashboard />
+      case 3:
+        return <Income />
+      case 4: 
+        return <Expenses />
+      default: 
+        return <Dashboard />
+    }
+  }
+
+  const orbMemo = useMemo(() => {
+    return <Orb />
+  },[])
 
   const global = useGlobalContext()
   console.log(global)
   return (
     <AppStyled className="App">
-      <Orb/>
+        {/* {orbMemo} */}
         <MainLayout>
-          <Navigation/>
-        </MainLayout>    
+          <Navigation active= {active} setActive = {setActive}/>
+        </MainLayout> 
+        
+        {/* <main>
+          {displayData()}
+        </main>    */}
     </AppStyled>
   );
 }
