@@ -2,8 +2,17 @@ import styled from "styled-components";
 import { MainLayout } from "./styles/Layout";
 import Orb from "./Components/Orb/Orb";
 import Navigation from "./Components/Navigation/Navigation";
-
+import Dashboard from "./Components/Dashboard/Dashboard";
+import Income from './Components/Income/Income'
+import Expenses from './Components/Expenses/Expenses'
+import { useGlobalContext } from "./context/GlobalContext";
+import { useState } from "react";
 function App() {
+
+  const [active, setActive] = useState(1)
+
+  const global = useGlobalContext()
+  console.log(global)
   return (
     <AppStyled className="App">
       <Orb/>
@@ -17,6 +26,18 @@ function App() {
 const AppStyled = styled.div`
   height:100vh;
   position:relative;
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
 `;
 
 export default App;

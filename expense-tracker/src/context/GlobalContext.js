@@ -2,7 +2,7 @@ import React,{ useContext, useState } from "react";
 import axios from 'axios';
 
 //host base url of backend that we need to connect to accces and render info from db through backend to the frontend to be displayed 
-const BASE_URL='http://localhost/api/v1/';
+const BASE_URL='http://localhost:5000/api/v1/';
 
 const GlobalContext = React.createContext()
 
@@ -39,7 +39,7 @@ export const GlobalProvider = ({children})=>{
     }
 
     //function to get total incomes 
-    const totalIncome = ()=>{
+    const totalIncomes = ()=>{
         let totalIncome =0 ;
         incomes.forEach((income)=>{
             totalIncome+=income;
@@ -85,11 +85,18 @@ export const GlobalProvider = ({children})=>{
 
     //function to get balance of icnomes and expenses 
     const totalBalance = ()=>{
-        return totalIncome() - totalExpenses();
+        return totalIncomes() - totalExpenses();
     }
 
     //function to get transaction history-- need to add
+    const transactionHistory = () => {
+        const history = [...incomes, ...expenses]
+        history.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt)
+        })
 
+        return history.slice(0, 3)
+    }
 
     return(
 
@@ -98,13 +105,14 @@ export const GlobalProvider = ({children})=>{
             incomes,
             getIncomes,
             deleteIncome,
-            totalIncome,
+            totalIncomes,
             addExpense,
             expenses,
             getExpenses,
             deleteExpense,
             totalExpenses,
             totalBalance,
+            transactionHistory,
             error,
             setError,
 
